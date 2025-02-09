@@ -5,18 +5,25 @@ function App() {
 
   return (
     <>
-      <div className='w-screen h-screen flex justify-center items-center'>
-          <div className='text-4xl font-bold text-center'>
-            Hello, I'm <span>
-            <Typewriter
-                words={['Dimas', 'a Software Engineer', 'a Dimsum Entusiast', 'a Problem Solver', 'a Lifelong Learner']}
-                loop={5}
-                cursor
-                typeSpeed={75}
-                deleteSpeed={50}
-                delaySpeed={1000}
-              />
-            </span>
+      <div className='w-screen h-screen flex flex-col justify-center items-center'>
+          <div className='text-[25px] md:text-[75px] font-bold text-center'>
+            Hello, I'm Dimas.
+            <div>
+              I am a
+              <span className='text-yellow-400'>
+                <Typewriter
+                    words={[' Dimsum Enthusiast', ' Problem Solver', ' Lifelong Learner', ' Software Engineer',]}
+                    loop={5}
+                    cursor
+                    typeSpeed={75}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                  />
+              </span>
+            </div>
+          </div>
+          <div className='mt-5 font-figtree'>
+            Stay tuned for more updates!
           </div>
       </div>
     </>
