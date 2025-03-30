@@ -3,7 +3,7 @@ import { Typewriter } from "react-simple-typewriter"
 export default function Hero() {
     return (
         <>
-            <div className='w-screen h-screen flex flex-col justify-center items-center'>
+            <div className='w-screen h-screen flex flex-col justify-center items-center snap-start'>
                 <div className='text-[25px] md:text-[75px] font-bold text-center mb-4'>
                     Hello, I'm Dimas.
                     <div>
@@ -34,8 +34,8 @@ export default function Hero() {
                         LinkedIn
                     </a>
                 </div>
-                <div className='mt-5 font-figtree text-xs md:text-xl'>
-                    Stay tuned for more updates!
+                <div className="mt-6 md:mt-8">
+                    <a href="#Experience" className="bg-gray-800 cursor-pointer text-white px-3 py-1 md:px-2 md:py-1 lg:px-4 lg:py-2 rounded-md text-sm shadow-lg">Get to know me!</a>
                 </div>
             </div>
         </>

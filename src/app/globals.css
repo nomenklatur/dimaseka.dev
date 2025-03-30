@@ -8,6 +8,10 @@
   --foreground: #171717;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .font-figtree {
   font-family: "Figtree", serif;
 }
