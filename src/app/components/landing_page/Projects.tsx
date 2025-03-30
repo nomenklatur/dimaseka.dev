@@ -10,25 +10,21 @@ export default function Projects() {
                 </div>
                 <div className="flex flex-col md:flex-row gap-4 md:gap-8 w-full">
                     <div>
-                        <p className="text-[70px] md:text-[60px] font-semibold">10+</p>
+                        <p className="text-[30px] md:text-[60px] font-semibold">10+</p>
                         <p className="text-base text-gray-400">Real projects</p>
                     </div>
                     <div>
-                        <p className="text-[70px] md:text-[60px] font-semibold">500+</p>
+                        <p className="text-[30px] md:text-[60px] font-semibold">500+</p>
                         <p className="text-base text-gray-400">Connections on LinkedIn</p>
                     </div>
                     <div>
-                        <p className="text-[70px] md:text-[60px] font-semibold">3+</p>
+                        <p className="text-[30px] md:text-[60px] font-semibold">3+</p>
                         <p className="text-base text-gray-400">Years of experience</p>
                     </div>
                 </div>
                 <div className="flex gap-4 overflow-auto mt-4">
                     <img src="/screenshots/simbkd.png" alt="Simbkd SS" width={400} className="rounded-md"/>
                     <img src="/screenshots/menuju.png" alt="Menuju SS" width={400} className="rounded-md"/>
-                    {/* <img src="/screenshots/simbkd.png" alt="Simbkd SS" width={400}/>
-                    <img src="/screenshots/simbkd.png" alt="Simbkd SS" width={400}/>
-                    <img src="/screenshots/simbkd.png" alt="Simbkd SS" width={400}/>
-                    <img src="/screenshots/simbkd.png" alt="Simbkd SS" width={400}/> */}
                 </div>
             </div>
         </>
