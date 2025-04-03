@@ -2,7 +2,7 @@
 export default function Experience() {
     return (
         <>
-            <div id="Experience" className="w-screen h-screen flex flex-col pt-16 px-8 gap-4 snap-start">
+            <div id="Experience" className="w-screen h-fit flex flex-col pt-16 px-8 gap-4 snap-start">
                 <div className="text-start">
                     <h2 className="text-lg md:text-[45px] font-semibold w-full md:w-1/2 md:leading-relaxed">From Debugging Nightmares to Seamless Deployments—I’ve Seen It All.</h2>
                     <p className="text-sm md:text-[18px] text-gray-400 font-figtree">Let’s leverage my 3+ years of experience to build something extraordinary.</p>
