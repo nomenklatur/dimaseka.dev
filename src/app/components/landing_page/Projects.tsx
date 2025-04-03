@@ -23,8 +23,10 @@ export default function Projects() {
                     </div>
                 </div>
                 <div className="flex gap-4 overflow-auto mt-4">
-                    <img src="/screenshots/simbkd.png" alt="Simbkd SS" width={400} className="rounded-md"/>
-                    <img src="/screenshots/menuju.png" alt="Menuju SS" width={400} className="rounded-md"/>
+                    <img src="/screenshots/simbkd.png" alt="Simbkd SS" width={500} className="rounded-md"/>
+                    <img src="/screenshots/menuju.png" alt="Menuju SS" width={500} className="rounded-md"/>
+                    <img src="/screenshots/belive.jpeg" alt="Belive Mobile SS" className="rounded-md"/>
+                    <img src="/screenshots/bookonlyatme.png" alt="Book Only at Me SS" width={550} className="rounded-md"/>
                 </div>
             </div>
         </>
