@@ -8,7 +8,7 @@ export default function Hero() {
                     Hello, I'm Dimas.
                     <div>
                     I am a
-                    <span aria-hidden="true" className="absolute text-white opacity-30">
+                    <span aria-hidden="true" className="absolute text-white opacity-10">
                     {' Software Engineer'}
                     </span>
                     <span className='text-yellow-400'>
