@@ -43,8 +43,10 @@ export default function Hero() {
                         Telegram
                     </a>
                 </div>
-                <div className="mt-6 md:mt-8">
+                <div className="mt-6 md:mt-8 flex flex-col md:flex-row gap-2 items-center">
                     <a href="#Experience" className="bg-gray-800 cursor-pointer text-white px-3 py-1 md:px-2 md:py-1 lg:px-4 lg:py-2 rounded-md text-sm shadow-lg">Get to know me!</a>
+                    <small className="text-gray-500">or</small>
+                    <a href="https://ask.dimaseka.my.id" target="_blank" className="cursor-pointer text-gray-800 px-3 py-1 md:px-2 md:py-1 lg:px-4 lg:py-2 rounded-md text-sm shadow-lg border border-gray-800">Ask me questions</a>
                 </div>
             </div>
         </>
