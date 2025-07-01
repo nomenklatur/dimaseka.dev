@@ -53,7 +53,7 @@ export default function Experience() {
                             <a href="https://rey.id/id/" target="_blank" className="bg-gray-800 cursor-pointer text-white px-3 py-1 md:px-2 md:py-1 lg:px-4 lg:py-2 rounded-md text-sm shadow-lg">Visit</a>
                         </div>
                     </div>
-                    <div className="flex gap-2 justify-between border border-yellow-600 rounded-lg p-4 shadow-xl shadow-yellow-200">
+                    <div className="flex gap-2 justify-between border border-gray-800 rounded-lg p-4 shadow-xl">
                         <div className="flex gap-2">
                             <div>
                                 <img src="/logos/lezenda.png" alt="Lezenda Logo" width={80} />
@@ -61,7 +61,7 @@ export default function Experience() {
                             <div>
                                 <p className="font-semibold text-sm">Software Engineer</p>
                                 <p className="text-gray-400 font-figtree mb-1">Lezenda</p>
-                                <p className="text-sm">2023 - <span className="bg-yellow-400 px-3 py-1 rounded-lg text-xs font-semibold">Today</span> </p>
+                                <p className="text-sm">2023 - 2025 </p>
                             </div>
                         </div>
                         <div>
