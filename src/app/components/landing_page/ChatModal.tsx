@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Send, Bot, X } from "lucide-react";
+import { useChat } from "@ai-sdk/react";
 
 interface Message {
   id: number;
@@ -16,26 +17,27 @@ interface ChatModalProps {
 }
 
 const ChatModal = ({ open, onOpenChange }: ChatModalProps) => {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: 1,
-      text: "Hello! I'm Dimas. How can I help you today?",
-      sender: 'agent',
-      timestamp: new Date(),
+  const { messages: aiMessages, handleSubmit, status, input, setInput } = useChat({
+    api: "/api/ask"
+  });
+  
+  const handleSendMessage = async () => {
+    if (!input.trim()) return; // Prevent sending empty messages
+    try {
+      setIsTyping(true);
+      await handleSubmit();
+    } catch (error) {
+      console.error("Error sending message:", error);
+    } finally {
+      setIsTyping(false);
     }
-  ]);
+  }
+
   const [newMessage, setNewMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const mockResponses = [
-    "That's a great question! Let me check our available properties for you.",
-    "I'd be happy to schedule a viewing for you. What time works best?",
-    "Our properties in that area are quite popular. Would you like to see similar options?",
-    "I can connect you with one of our property specialists right away.",
-    "Thank you for your interest! Let me get you more details about that property."
-  ];
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -43,34 +45,7 @@ const ChatModal = ({ open, onOpenChange }: ChatModalProps) => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
-
-  const handleSendMessage = () => {
-    if (newMessage.trim()) {
-      const userMessage: Message = {
-        id: messages.length + 1,
-        text: newMessage,
-        sender: 'user',
-        timestamp: new Date(),
-      };
-
-      setMessages(prev => [...prev, userMessage]);
-      setNewMessage("");
-      setIsTyping(true);
-
-      // Mock agent response with typing indicator
-      setTimeout(() => {
-        setIsTyping(false);
-        const agentMessage: Message = {
-          id: messages.length + 2,
-          text: mockResponses[Math.floor(Math.random() * mockResponses.length)],
-          sender: 'agent',
-          timestamp: new Date(),
-        };
-        setMessages(prev => [...prev, agentMessage]);
-      }, 2000);
-    }
-  };
+  }, [aiMessages]);
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
@@ -104,13 +79,6 @@ const ChatModal = ({ open, onOpenChange }: ChatModalProps) => {
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            {/* <Button
-              onClick={() => setIsMinimized(!isMinimized)}
-              className="p-1 bg-transparent hover:bg-white/20 rounded-full"
-              size="icon"
-            >
-              <Minimize2 size={14} />
-            </Button> */}
             <Button
               onClick={() => onOpenChange(false)}
               className="p-1 bg-transparent hover:bg-white/20 rounded-full text-black"
@@ -125,34 +93,34 @@ const ChatModal = ({ open, onOpenChange }: ChatModalProps) => {
           <>
             {/* Messages Area */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 h-64 bg-gray-50">
-              {messages.map((message, index) => (
+              {aiMessages.map((message, index) => (
                 <div
-                  key={message.id}
-                  className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
+                  key={`message-${index}`}
+                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div
                     className={`flex items-end space-x-2 max-w-[80%] ${
-                      message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''
+                      message.role === 'user' ? 'flex-row-reverse space-x-reverse' : ''
                     }`}
                   >
-                    {message.sender === 'agent' && (
+                    {message.role === 'assistant' && (
                       <div className="w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center flex-shrink-0">
                         <Bot size={12} className="text-white" />
                       </div>
                     )}
                     <div
                       className={`px-3 py-2 rounded-2xl shadow-sm transition-all duration-200 hover:shadow-md ${
-                        message.sender === 'user'
+                        message.role === 'user'
                           ? 'bg-gray-700 text-white rounded-br-md'
                           : 'bg-white text-gray-800 rounded-bl-md border'
                       }`}
                     >
-                      <p className="text-sm leading-relaxed">{message.text}</p>
+                      <p className="text-sm leading-relaxed">{message.content}</p>
                       <p className={`text-xs mt-1 ${
-                        message.sender === 'user' ? 'text-white' : 'text-gray-500'
+                        message.role === 'user' ? 'text-white' : 'text-gray-500'
                       }`}>
-                        {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        {message.createdAt?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </p>
                     </div>
                   </div>
@@ -181,21 +149,28 @@ const ChatModal = ({ open, onOpenChange }: ChatModalProps) => {
             
             {/* Input Area */}
             <div className="p-4 bg-white border-t rounded-b-2xl">
-              <div className="flex space-x-2">
-                <Input
-                  value={newMessage}
-                  onChange={(e) => setNewMessage(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Type your message..."
-                  className="flex-1 border-gray-200 rounded-full px-4 focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                />
-                <Button 
-                  onClick={handleSendMessage} 
-                  className="bg-gray-700 rounded-full w-10 h-10 p-0 transition-all duration-200 hover:scale-105"
-                  size="icon"
+              <div>
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSendMessage();
+                }}
+                className="flex space-x-2"
                 >
-                  <Send size={16} />
-                </Button>
+                  <Input
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Type your message..."
+                    className="flex-1 border-gray-200 rounded-full px-4 focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  />
+                  <Button 
+                    onClick={handleSendMessage} 
+                    className="bg-gray-700 rounded-full w-10 h-10 p-0 transition-all duration-200 hover:scale-105"
+                    size="icon"
+                  >
+                    <Send size={16} />
+                  </Button>
+                </form>
               </div>
             </div>
           </>
