@@ -17,7 +17,7 @@ interface ChatModalProps {
 }
 
 const ChatModal = ({ open, onOpenChange }: ChatModalProps) => {
-  const { messages: aiMessages, handleSubmit, status, input, setInput } = useChat({
+  const { messages: aiMessages, handleSubmit, input, setInput } = useChat({
     api: "/api/ask"
   });
   
@@ -32,10 +32,7 @@ const ChatModal = ({ open, onOpenChange }: ChatModalProps) => {
       setIsTyping(false);
     }
   }
-
-  const [newMessage, setNewMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
 
@@ -58,11 +55,7 @@ const ChatModal = ({ open, onOpenChange }: ChatModalProps) => {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       <div 
-        className={`bg-white rounded-t-2xl shadow-2xl border transition-all duration-300 ease-in-out ${
-          isMinimized 
-            ? 'w-80 h-16 animate-scale-in' 
-            : 'w-80 h-96 animate-fade-in-up'
-        }`}
+        className={`bg-white rounded-t-2xl shadow-2xl border transition-all duration-300 ease-in-out w-80 h-96 animate-fade-in-up`}
       >
         {/* Header */}
         <div className="bg-yellow-300 text-black p-4 rounded-t-2xl flex items-center justify-between">
@@ -89,7 +82,7 @@ const ChatModal = ({ open, onOpenChange }: ChatModalProps) => {
           </div>
         </div>
 
-        {!isMinimized && (
+        {(
           <>
             {/* Messages Area */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 h-64 bg-gray-50">
