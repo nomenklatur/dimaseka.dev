@@ -59,7 +59,7 @@ const Articles = () => {
       <div className="max-w-6xl">
         <div className="text-start mb-16">
           <h2 className="text-lg md:text-3xl font-semibold leading-relaxed mb-6">Latest Articles</h2>
-          <p className="text-sm md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-figtree">
+          <p className="text-sm md:text-lg text-gray-600 max-w-3xl leading-relaxed font-figtree">
             Sharing insights and experiences from the world of software development.
             Stay updated with the latest trends and best practices.
           </p>
