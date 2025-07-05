@@ -5,6 +5,7 @@ import Experience from "../components/custom/landing_page/Experience";
 import Projects from "../components/custom/landing_page/Projects";
 import Footer from "../components/custom/landing_page/Footer";
 import FloatingButton from "../components/custom/landing_page/FloatingButton";
+import FreelancePlatforms from "@/components/custom/landing_page/FreelancePlatforms";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <FloatingButton />
       <Projects />
       <Experience />
+      <FreelancePlatforms />
       <Footer />
     </div>
    );
