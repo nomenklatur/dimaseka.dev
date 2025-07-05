@@ -35,21 +35,17 @@ const FreelancePlatforms = () => {
   ];
 
   return (
-    <section id="platforms" className="py-24 px-8 bg-gradient-to-br from-slate-50/50 via-white to-blue-50/30 overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-blue-100/40 to-purple-100/40 rounded-full blur-3xl -translate-x-32 -translate-y-32"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-emerald-100/40 to-blue-100/40 rounded-full blur-3xl translate-x-32 translate-y-32"></div>
-      
+    <section id="platforms" className="py-12 px-8 w-screen relative overflow-hidden">
       <div className="container max-w-7xl relative z-10">
-        <div className="text-start mb-20">
+        <div className="text-start mb-12">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-100 to-yellow-300 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Sparkles className="w-4 h-4 animate-bounce" />
             Available for Projects
           </div>
-          <h2 className="text-5xl md:text-6xl font-semibold mb-6 leading-tight">
+          <h2 className="text-lg md:text-[45px] font-semibold mb-4 leading-relaxed">
             Ready to Hire
           </h2>
-          <p className="text-lg font-figtree text-gray-400 max-w-4xl leading-relaxed">
+          <p className="text-base font-figtree text-gray-400 max-w-4xl leading-relaxed">
             Choose your preferred way to work together. From established platforms with verified reviews 
             to direct collaboration for custom solutions.
           </p>
@@ -65,11 +61,11 @@ const FreelancePlatforms = () => {
             <CardContent className="p-10 relative z-10">
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
-                  <h3 className="text-3xl font-bold text-slate-900">Freelance Platforms</h3>
+                  <h3 className="text-lg md:text-3xl font-bold text-slate-900">Freelance Platforms</h3>
                 </div>
-                <Badge className="bg-yellow-400 text-white border-0 px-4 py-1 text-sm font-semibold shadow-lg">
+                <div className="bg-yellow-400 text-white border-0 px-2 py-1 text-xs w-fit rounded-lg shadow-lg whitespace-nowrap">
                   Most Popular
-                </Badge>
+                </div>
               </div>
               
               <p className="text-gray-600 mb-10 text-lg font-figtree leading-relaxed">
@@ -112,15 +108,15 @@ const FreelancePlatforms = () => {
                 </div>
                 <ul className="text-sm text-slate-600 space-y-2 ml-8">
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
+                    <div className="min-w-2 min-h-2 bg-black rounded-full"></div>
                     Secure payment processing & escrow protection
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
+                    <div className="min-w-2 min-h-2 bg-black rounded-full"></div>
                     Verified reviews and transparent ratings
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
+                    <div className="min-w-2 min-h-2 bg-black rounded-full"></div>
                     Platform support and dispute resolution
                   </li>
                 </ul>
@@ -145,7 +141,7 @@ const FreelancePlatforms = () => {
               
               <div className="space-y-6 mb-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-purple-400 rounded-lg flex items-center justify-center mt-0.5 shadow-sm">
+                  <div className="min-w-6 min-h-6 bg-gradient-to-br from-blue-400 to-purple-400 rounded-lg flex items-center justify-center mt-0.5 shadow-sm">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
                   </div>
                   <div>
@@ -155,7 +151,7 @@ const FreelancePlatforms = () => {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 bg-gradient-to-br from-emerald-400 to-green-400 rounded-lg flex items-center justify-center mt-0.5 shadow-sm">
+                  <div className="min-w-6 min-h-6 bg-gradient-to-br from-emerald-400 to-green-400 rounded-lg flex items-center justify-center mt-0.5 shadow-sm">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
                   </div>
                   <div>
@@ -165,7 +161,7 @@ const FreelancePlatforms = () => {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 bg-gradient-to-br from-orange-400 to-red-400 rounded-lg flex items-center justify-center mt-0.5 shadow-sm">
+                  <div className="min-w-6 min-h-6 bg-gradient-to-br from-orange-400 to-red-400 rounded-lg flex items-center justify-center mt-0.5 shadow-sm">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
                   </div>
                   <div>

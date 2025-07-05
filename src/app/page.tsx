@@ -6,6 +6,7 @@ import Projects from "../components/custom/landing_page/Projects";
 import Footer from "../components/custom/landing_page/Footer";
 import FloatingButton from "../components/custom/landing_page/FloatingButton";
 import FreelancePlatforms from "@/components/custom/landing_page/FreelancePlatforms";
+import Articles from "@/components/custom/landing_page/Articles";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Projects />
       <Experience />
       <FreelancePlatforms />
+      <Articles />
       <Footer />
     </div>
    );
