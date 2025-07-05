@@ -35,7 +35,7 @@ const FreelancePlatforms = () => {
   ];
 
   return (
-    <section id="platforms" className="py-24 px-4 bg-gradient-to-br from-slate-50/50 via-white to-blue-50/30 overflow-hidden">
+    <section id="platforms" className="py-24 px-8 bg-gradient-to-br from-slate-50/50 via-white to-blue-50/30 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-blue-100/40 to-purple-100/40 rounded-full blur-3xl -translate-x-32 -translate-y-32"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-emerald-100/40 to-blue-100/40 rounded-full blur-3xl translate-x-32 translate-y-32"></div>
