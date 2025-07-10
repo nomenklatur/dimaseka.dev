@@ -24,33 +24,6 @@ const Articles = () => {
     fetchArticles();
   }, [])
 
-  const articles = [
-    {
-      title: "Building Scalable React Applications with TypeScript",
-      excerpt: "Learn best practices for structuring large React applications with TypeScript for better maintainability and developer experience.",
-      date: "March 15, 2024",
-      readTime: "8 min read",
-      tags: ["React", "TypeScript", "Architecture"],
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop"
-    },
-    {
-      title: "Microservices Architecture: When and Why",
-      excerpt: "Exploring the benefits and challenges of microservices architecture and when it makes sense for your project.",
-      date: "February 28, 2024",
-      readTime: "12 min read",
-      tags: ["Architecture", "Backend", "DevOps"],
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop"
-    },
-    {
-      title: "Optimizing Web Performance: A Developer's Guide",
-      excerpt: "Comprehensive guide to improving web application performance through code optimization, caching strategies, and modern tooling.",
-      date: "February 10, 2024",
-      readTime: "10 min read",
-      tags: ["Performance", "Optimization", "Web"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop"
-    }
-  ];
-
   return (
     <section id="articles" className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
