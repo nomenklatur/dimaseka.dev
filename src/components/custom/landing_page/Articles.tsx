@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Article } from "@/types/article.type";
+import Link from "next/link";
 import axios from "axios";
 import { formatToDateString } from "@/lib/datetime";
 
@@ -125,13 +126,14 @@ const Articles = () => {
             </div>
 
             <div className="text-center">
-              <Button 
-                onClick={() => console.log("View All Articles Clicked")}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold"
-              >
-                View All Articles
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              <Link href="/blogs">
+                <Button 
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold"
+                >
+                  View All Articles
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </Link>
             </div>
             </>
           ) : (

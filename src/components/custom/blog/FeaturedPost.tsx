@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Article } from "@/types/article.type";
 import { formatToDateString } from "@/lib/datetime";
+import Link from "next/link";
 
 interface FeaturedPostProps {
   post: Article;
@@ -34,7 +35,9 @@ const FeaturedPost = ({ post }: FeaturedPostProps) => {
               <div className="text-xs text-gray-500">{formatToDateString(post.publishedDate)} · {post.readTime} min read</div>
             </div>
           </div>
+          <Link href={`/blogs/${post.slug}`}>
             <Button>Read article</Button>
+          </Link>
         </div>
       </div>
       <div className="md:col-span-2 order-1 md:order-2">

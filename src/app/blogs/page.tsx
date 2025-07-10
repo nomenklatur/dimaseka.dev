@@ -91,7 +91,7 @@ const Index = async () => {
                 <CardFooter className="px-6 pb-6 pt-2">
                   <div className="flex justify-between items-center w-full">
                     <div className="text-sm text-gray-500">{formatToDateString(post.createdAt)}</div>
-                    <Link href={`/${post.slug}`}>
+                    <Link href={`/blogs/${post.slug}`}>
                       <Button variant="ghost" className="text-gray-600 p-0 hover:text-gray-900 hover:bg-transparent cursor-pointer">
                         Read more
                       </Button>
