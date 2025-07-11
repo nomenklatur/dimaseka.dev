@@ -13,7 +13,7 @@ export interface Article  {
   title: string;
   slug: string;
   excerpt: string;
-  content: string;
+  content: any;
   featuredImage: ArticleImage;
   publishedDate: string;
   readTime: string;
