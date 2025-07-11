@@ -39,7 +39,6 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 const ArticlePage = async ({ params }: ArticlePageProps) => {
     const pageParams = await params;
     const post = await getPostBySlug(pageParams.slug);
-    console.log(post)
     const sampleImage = "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1470&auto=format&fit=crop";
 
     if (!post) {

@@ -10,7 +10,7 @@ import Link from "next/link";
 import axios from "axios";
 
 const getPosts = async () => {
-    const resp = await axios.get("https://author-dimaseka-dev.vercel.app/api/posts");
+    const resp = await axios.get(`${process.env.NEXT_PUBLIC_AUTHOR_BASE_URL}/api/posts?depth=1`);
     return resp.data?.docs;
 }
 
@@ -22,7 +22,7 @@ const Index = async () => {
     <div className="min-h-screen flex flex-col bg-white">
       
       <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
-        <Link href="/" className="flex gap-2 items-center mb-8 text-gray-400">
+        <Link href="/" className="flex gap-2 items-center mb-8">
             <ArrowLeft className="w-5 h-5 text-gray-800" />
             Back to Home
         </Link>

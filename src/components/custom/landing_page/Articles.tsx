@@ -16,7 +16,7 @@ const Articles = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get(`/api/posts?depth=1`);
+        const response = await axios.get(`/api/posts`);
         setFetchedArticles(response.data as Article[] || []);
       } catch (error) {
         console.error("Error fetching articles:", error);
