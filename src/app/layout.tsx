@@ -5,6 +5,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Dimas Eka Putra",
   description: "Your Software Engineering Partner",
+  verification: {
+    google: "ITrMENnTjnsYnpCKjwO5Yy2chJ23A04FSynG769r5dQ",
+  },
   openGraph: {
     title: "Dimas Eka Putra",
     description: "Your Software Engineering Partner",
