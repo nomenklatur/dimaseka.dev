@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://dimaseka.my.id
+
+# Sitemaps
+Sitemap: https://dimaseka.my.id/sitemap.xml
