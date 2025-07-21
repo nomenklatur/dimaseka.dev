@@ -7,6 +7,8 @@ import Footer from "../components/custom/landing_page/Footer";
 import FloatingButton from "../components/custom/landing_page/FloatingButton";
 import FreelancePlatforms from "@/components/custom/landing_page/FreelancePlatforms";
 import Articles from "@/components/custom/landing_page/Articles";
+import About from "@/components/custom/landing_page/About";
+import Skills from "@/components/custom/landing_page/Skills";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
       <FloatingButton />
       <Projects />
       <Experience />
+      <About />
+      <Skills />
       <FreelancePlatforms />
       <Articles />
       <Footer />
