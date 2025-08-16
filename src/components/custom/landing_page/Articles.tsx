@@ -42,6 +42,7 @@ const Articles = () => {
             <>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
               {/* Featured article - takes full width on mobile, left half on desktop */}
+              <Link href={`/blogs/${fetchedArticles[0].slug}`}>
               <Card className="lg:row-span-2 hover-scale border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
@@ -80,11 +81,13 @@ const Articles = () => {
                   </div>
                 </CardContent>
               </Card>
+              </Link>
 
               {/* Right column with 2 smaller articles */}
               <div className="space-y-6">
                 {fetchedArticles.slice(1, fetchedArticles.length).map((article, index) => (
                   <Card key={index + 1} className="hover-scale border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
+                    <Link href={`/blogs/${article.slug}`}>
                     <div className="flex">
                       <div className="relative overflow-hidden w-32 flex-shrink-0">
                         <img
@@ -120,6 +123,7 @@ const Articles = () => {
                         </div>
                       </CardContent>
                     </div>
+                    </Link>
                   </Card>
                 ))}
               </div>
