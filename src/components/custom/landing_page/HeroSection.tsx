@@ -1,6 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 interface HeroSectionProps {
   sectionRef: (element: HTMLElement | null) => void
@@ -57,6 +58,23 @@ export default function HeroSection({ sectionRef }: HeroSectionProps) {
               </div>
               <div>Indonesia</div>
             </div>
+          </div>
+          <div className="flex flex-wrap gap-4">
+            <Button
+              asChild
+            >
+              <Link href="https://calendar.app.google/QWh7tRdk9x2pkDHo8" target="_blank">
+                Schedule a Meeting
+              </Link>
+            </Button>
+            <Button
+              variant="outline"
+              asChild
+            >
+              <Link href="https://wa.me/6285179728146?text=Hello%2C%20I%20want%20to%20ask%20a%20favor%20for%20" target="_blank">
+                WhatsApp
+              </Link>
+            </Button>
           </div>
         </motion.div>
 

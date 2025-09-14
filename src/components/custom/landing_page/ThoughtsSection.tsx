@@ -35,7 +35,7 @@ export default function ThoughtsSection({ sectionRef }: ThoughtsSectionProps) {
   ]
 
   return (
-    <section id="thoughts" ref={sectionRef} className="min-h-screen py-20 sm:py-32 opacity-0">
+    <section id="thoughts" ref={sectionRef} className="min-h-screen py-20 sm:py-32">
       <div className="space-y-12 sm:space-y-16">
         <h2 className="text-3xl sm:text-4xl font-light">Recent Thoughts</h2>
 

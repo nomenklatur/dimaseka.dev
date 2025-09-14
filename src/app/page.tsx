@@ -44,7 +44,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground relative">
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
         <div className="flex flex-col gap-4">
-          {["intro", "work", "featured", "products", "thoughts", "connect"].map((section, index) => (
+          {["intro", "work", "connect"].map((section, index) => (
             <motion.button
               key={section}
               onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })}
@@ -66,16 +66,14 @@ export default function Home() {
       <main className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16">
         <HeroSection sectionRef={(el) => (sectionsRef.current[0] = el)} />
         <WorkSection sectionRef={(el) => (sectionsRef.current[1] = el)} />
-        <FeaturedWorksSection sectionRef={(el) => (sectionsRef.current[2] = el)} />
-        <ProductsSection sectionRef={(el) => (sectionsRef.current[3] = el)} />
-        <ThoughtsSection sectionRef={(el) => (sectionsRef.current[4] = el)} />
+        {/* <ThoughtsSection sectionRef={(el) => (sectionsRef.current[4] = el)} /> */}
         <ConnectSection sectionRef={(el) => (sectionsRef.current[5] = el)} />
 
         <footer className="py-12 sm:py-16 border-t border-border">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 sm:gap-8">
             <div className="space-y-2">
-              <div className="text-sm text-muted-foreground">© 2025 Felix Macaspac. All rights reserved.</div>
-              <div className="text-xs text-muted-foreground">Built with v0.dev by Felix Macaspac</div>
+              <div className="text-sm text-muted-foreground">© {new Date().getFullYear()} Dimas Eka Putra. All rights reserved.</div>
+              <div className="text-xs text-muted-foreground">Built with Next.js by Dimas Eka Putra</div>
             </div>
 
             <div className="flex items-center gap-4">
