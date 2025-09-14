@@ -49,6 +49,13 @@ export default function WorkSection({ sectionRef }: WorkSectionProps) {
       description: "Assisted in developing backend services for an e-learning space management system.",
       tech: ["Python", "Bitbucket", "MySQL"],
     },
+    {
+      year: "2019",
+      role: "Web Developer",
+      company: "IAKN Tarutung",
+      description: "Designed and developed custom websites for educational institution.",
+      tech: ["Laravel", "CodeIgniter", "PHP", "MySQL"],
+    }
   ]
 
   return (

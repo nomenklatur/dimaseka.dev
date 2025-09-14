@@ -3,9 +3,6 @@ import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import HeroSection from "@/components/custom/landing_page/HeroSection"
 import WorkSection from "@/components/custom/landing_page/WorkSection"
-import FeaturedWorksSection from "@/components/custom/landing_page/FeaturedWorkSection"
-import ProductsSection from "@/components/custom/landing_page/ProductsSection"
-import ThoughtsSection from "@/components/custom/landing_page/ThoughtsSection"
 import ConnectSection from "@/components/custom/landing_page/ConnectSection"
 
 export default function Home() {
