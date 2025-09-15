@@ -1,38 +1,34 @@
 "use client"
-
-import type { RefObject } from "react"
-
+import { Article } from "@/types/article.type"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { formatToDateString } from "@/lib/datetime"
 interface ThoughtsSectionProps {
   sectionRef: (element: HTMLElement | null) => void
 }
 
 export default function ThoughtsSection({ sectionRef }: ThoughtsSectionProps) {
-  const posts = [
-    {
-      title: "The Future of Web Development",
-      excerpt: "Exploring how AI and automation are reshaping the way we build for the web.",
-      date: "Dec 2024",
-      readTime: "5 min",
-    },
-    {
-      title: "Design Systems at Scale",
-      excerpt: "Lessons learned from building and maintaining design systems across multiple products.",
-      date: "Nov 2024",
-      readTime: "8 min",
-    },
-    {
-      title: "Performance-First Development",
-      excerpt: "Why performance should be a first-class citizen in your development workflow.",
-      date: "Oct 2024",
-      readTime: "6 min",
-    },
-    {
-      title: "The Art of Code Review",
-      excerpt: "Building better software through thoughtful and constructive code reviews.",
-      date: "Sep 2024",
-      readTime: "4 min",
-    },
-  ]
+  const [articles, setArticles] = useState<Article[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await axios.get("/api/posts", {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        console.log("Fetch response:", response)
+        setArticles(response.data)
+      } catch (error) {
+        console.error("Error fetching articles:", error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchArticles();
+  }, [])
 
   return (
     <section id="thoughts" ref={sectionRef} className="min-h-screen py-20 sm:py-32">
@@ -40,22 +36,26 @@ export default function ThoughtsSection({ sectionRef }: ThoughtsSectionProps) {
         <h2 className="text-3xl sm:text-4xl font-light">Recent Thoughts</h2>
 
         <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
-          {posts.map((post, index) => (
+          {isLoading && (
+            <div>Loading...</div>
+          )
+          }
+          {articles.map((post, index) => (
             <article
               key={index}
               className="group p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
-                  <span>{post.date}</span>
-                  <span>{post.readTime}</span>
+                  <span>{formatToDateString(post.publishedDate)}</span>
+                  <span>{post.readTime} MIN</span>
                 </div>
 
                 <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
                   {post.title}
                 </h3>
 
-                <p className="text-muted-foreground leading-relaxed">{post.excerpt}</p>
+                <p className="text-muted-foreground leading-relaxed line-clamp-5">{post.excerpt}</p>
 
                 <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                   <span>Read more</span>

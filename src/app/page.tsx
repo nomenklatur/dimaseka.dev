@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import HeroSection from "@/components/custom/landing_page/HeroSection"
 import WorkSection from "@/components/custom/landing_page/WorkSection"
 import ConnectSection from "@/components/custom/landing_page/ConnectSection"
+import ThoughtsSection from "@/components/custom/landing_page/ThoughtsSection"
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true)
@@ -41,7 +42,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground relative">
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
         <div className="flex flex-col gap-4">
-          {["intro", "work", "connect"].map((section, index) => (
+          {["intro", "work", "thoughts",  "connect"].map((section, index) => (
             <motion.button
               key={section}
               onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })}
@@ -63,7 +64,7 @@ export default function Home() {
       <main className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16">
         <HeroSection sectionRef={(el) => (sectionsRef.current[0] = el)} />
         <WorkSection sectionRef={(el) => (sectionsRef.current[1] = el)} />
-        {/* <ThoughtsSection sectionRef={(el) => (sectionsRef.current[4] = el)} /> */}
+        <ThoughtsSection sectionRef={(el) => (sectionsRef.current[4] = el)} />
         <ConnectSection sectionRef={(el) => (sectionsRef.current[5] = el)} />
 
         <footer className="py-12 sm:py-16 border-t border-border">
