@@ -13,20 +13,29 @@ const projects = [
   {
     id: 1,
     image: "/assets/images/projects/menuju.jpeg",
-    title: "Analytics Dashboard",
+    title: "Menuju - Website Builder",
+    paddingColor: "bg-blue-100",
+    isMobile: false,
     gridClass: "col-span-2 row-span-2",
+    link: "https://menuju.co.id",
   },
   {
     id: 2,
-    image: "/assets/images/projects/menuju.jpeg",
-    title: "Music Focus App",
+    image: "/assets/images/projects/situkang.webp",
+    title: "SiTukang - Service Marketplace",
+    paddingColor: "bg-orange-100",
+    isMobile: true,
     gridClass: "col-span-1 row-span-1",
+    link: "https://play.google.com/store/apps/details?id=com.situkangapp.app&pcampaignid=web_share"
   },
   {
     id: 3,
-    image: "/assets/images/projects/menuju.jpeg",
-    title: "Restaurant App",
+    image: "/assets/images/projects/tuatu.webp",
+    title: "Tuatu - FnB Locator",
+    paddingColor: "bg-red-100",
+    isMobile: true,
     gridClass: "col-span-1 row-span-1",
+    link: "https://play.google.com/store/apps/details?id=com.tuatu.customer&pcampaignid=web_share"
   },
 ];
 
@@ -41,9 +50,7 @@ export default function ProjectsSection({ sectionRef }: ProjectsSectionProps) {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
-            Featured Projects
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-light">Featured Works</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A showcase of innovative digital experiences and creative solutions
           </p>
