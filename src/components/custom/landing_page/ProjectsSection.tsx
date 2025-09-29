@@ -1,7 +1,5 @@
 "use client"
 
-import Link from "next/link"
-import { Linkedin, Github, Instagram, Twitter } from "lucide-react"
 import { motion } from "framer-motion"
 import ProjectCard from "../ProjectCard"
 
@@ -42,12 +40,20 @@ const projects = [
 export default function ProjectsSection({ sectionRef }: ProjectsSectionProps) {
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 px-4 bg-background">
+    <motion.section 
+      id="projects" 
+      ref={sectionRef} 
+      className="py-20 px-4 bg-background"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, margin: "-40%" }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    >
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-light">Featured Works</h2>
@@ -58,9 +64,9 @@ export default function ProjectsSection({ sectionRef }: ProjectsSectionProps) {
 
         <motion.div 
           className="grid md:grid-cols-3 md:grid-rows-2 gap-6 h-[600px] max-w-5xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
           {projects.map((project, index) => (
             <ProjectCard 
@@ -71,6 +77,6 @@ export default function ProjectsSection({ sectionRef }: ProjectsSectionProps) {
           ))}
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
